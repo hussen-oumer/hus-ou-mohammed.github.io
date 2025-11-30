@@ -22,7 +22,7 @@ organizations:
     url: https://dipc.ehu.eus/en/
 
 # Short bio (displayed in user profile at end of posts)
-bio: Computer physicist in soft matter and fluids at interfaces in LIPhy (UGA, CNRS), in Grenoble, France.
+bio: PhD student in DIPC, in Donostia, Spain.
 
 # Interests to show in About widget
 interests:
@@ -63,13 +63,7 @@ highlight_name: true # Highlight the author in author lists? (true/false)
 
 ### About me ##
 
-I am a computational physicist specializing in soft matter and fluids at interfaces, working at the LIPhy institute in Grenoble, France. In parallel, I serve as the Scientific Secretary of Section 08 of the National Committee.
-
-#<a href="https://github.com/simongravelle" target="_blank" style="float: right">
-#  <img src="https://raw.githubusercontent.com/simongravelle/simongravelle.github.io/refs/heads/m#ain/static/img/water-in-polymer.png" alt="Water in polymer - molecular dynamics" width="200">
-#</a>
-
-<span style="display: block; height: 8px;"></span>
+I am a computational physicist specializing in modeling and simulation of novel materials , working as an early stage researcher at the Donostia International Physics Center, Spain. 
 
 ### What I share on <a href="https://github.com/hussen-oumer" target="_blank" style="text-decoration: none;">GitHub</a> ##
 
@@ -79,8 +73,3 @@ I am a computational physicist specializing in soft matter and fluids at interfa
 
 <span style="display: block; height: 8px;"></span>
 
-### My primary outreach projects ##
-
-#  - <a href="https://github.com/lammpstutorials" target="_blank" style="text-decoration: none;"># LAMMPS tutorials</a> for LAMMPS beginners
-#  - <a href="https://github.com/mdcourse" target="_blank" style="text-decoration: none;">Guides<# /a> for implementing molecular simulations from scratch
-#
