@@ -1,1 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hussen Oumer Mohammed | Computational Scientist</title>
+  <meta name="description" content="PhD Student at DIPC – Computational Design of Soft Matter, Ionic Liquids, and Forward-Osmosis Desalination. 2.5M CPU hours managed at BSC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg:       #060d1a;
+      --bg2:      #0c1829;
+      --bg3:      #0f2040;
+      --surface:  #111e33;
+      --border:   rgba(255,255,255,0.08);
+      --border2:  rgba(255,255,255,0.14);
+      --accent:   #3ecfb2;
+      --accent2:  #5ba3f5;
+      --accent3:  #f5a623;
+      --text:     #e8eef8;
+      --muted:    #7b8eaa;
+      --dim:      #4a5a72;
+      --ff-sans:  'Space Grotesk', sans-serif;
+      --ff-serif: 'Playfair Display', serif;
+      --ff-mono:  'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── SCROLLBAR ────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+    /* ─── PARTICLES CANVAS ─────────────────────────── */
+    #canvas {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+      opacity: 0.45;
+    }
+
+    /* ─── NAV ──────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(6,13,26,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: var(--ff-mono);
+      font-size: 15px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex; gap: 36px;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* hamburger – mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 63px; left: 0; right: 0;
+      background: rgba(6,13,26,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 48px 32px;
+      z-index: 99;
+      flex-direction: column; gap: 20px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 16px; font-weight: 500;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ─── SECTIONS WRAPPER ─────────────────────────── */
+    main { position: relative; z-index: 1; }
+    section { padding: 100px 0; }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+
+    /* ─── HERO ─────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 80px;
+    }
+    .hero-inner {
+      max-width: 980px; margin: 0 auto; padding: 0 32px;
+    }
+    .hero-eyebrow {
+      font-family: var(--ff-mono);
+      font-size: 13px; color: var(--accent);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 40px; height: 1px; background: var(--accent);
+    }
+    .hero-name {
+      font-family: var(--ff-serif);
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .hero-name em {
+      font-style: italic; font-weight: 400;
+      color: var(--accent); display: block;
+    }
+    .hero-tagline {
+      font-size: 18px; font-weight: 300;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-bottom: 48px;
+    }
+    .pill {
+      font-family: var(--ff-mono);
+      font-size: 11px; font-weight: 500;
+      padding: 5px 14px; border-radius: 20px;
+      border: 1px solid;
+      letter-spacing: 0.05em;
+    }
+    .pill-teal   { border-color: var(--accent);  color: var(--accent);  background: rgba(62,207,178,0.08); }
+    .pill-blue   { border-color: var(--accent2); color: var(--accent2); background: rgba(91,163,245,0.08); }
+    .pill-amber  { border-color: var(--accent3); color: var(--accent3); background: rgba(245,166,35,0.08); }
+
+    .hero-cta {
+      display: flex; flex-wrap: wrap; gap: 14px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 4px;
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--accent); color: #060d1a;
+    }
+    .btn-primary:hover { background: #5cdfca; box-shadow: 0 8px 24px rgba(62,207,178,0.3); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border2);
+    }
+    .btn-outline:hover { background: var(--surface); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+    .hero-stats {
+      display: flex; gap: 48px; margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: var(--ff-mono);
+      font-size: 32px; font-weight: 500;
+      color: var(--text);
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--dim); font-size: 11px;
+      font-family: var(--ff-mono); letter-spacing: 0.1em;
+      animation: float 2.2s ease-in-out infinite;
+    }
+    .scroll-hint svg { opacity: 0.5; }
+    @keyframes float {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ─── SECTION HEADERS ──────────────────────────── */
+    .sec-label {
+      font-family: var(--ff-mono);
+      font-size: 12px; color: var(--accent);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sec-label::before {
+      content: '';
+      display: block; width: 30px; height: 1px; background: var(--accent);
+    }
+    .sec-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+
+    /* ─── ABOUT ────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px; align-items: start;
+    }
+    .about-text p {
+      font-size: 16px; color: var(--muted); line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+
+    .about-timeline { margin-top: 36px; }
+    .timeline-item {
+      display: flex; gap: 20px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute; left: 7px; top: 16px;
+      width: 1px; height: calc(100% - 10px);
+      background: var(--border2);
+    }
+    .t-dot {
+      width: 15px; height: 15px; border-radius: 50%;
+      border: 2px solid var(--accent); background: var(--bg);
+      flex-shrink: 0; margin-top: 3px;
+    }
+    .t-dot.blue { border-color: var(--accent2); }
+    .t-dot.amber { border-color: var(--accent3); }
+    .t-body h4 { font-size: 14px; font-weight: 500; color: var(--text); }
+    .t-body p  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .card-top {
+      background: linear-gradient(135deg, #0c2d5a 0%, #062a20 100%);
+      padding: 32px 24px; text-align: center;
+    }
+    .avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-serif); font-size: 28px; color: #060d1a;
+      font-weight: 700; margin: 0 auto 16px;
+    }
+    .card-top h3 { font-size: 16px; font-weight: 500; color: var(--text); }
+    .card-top p  { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+    .card-body { padding: 20px 24px; }
+    .info-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px; color: var(--muted);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .icon { font-size: 14px; width: 18px; text-align: center; }
+    .info-row strong { color: var(--text); font-weight: 400; }
+    .card-links {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 16px 24px; border-top: 1px solid var(--border);
+    }
+    .card-link {
+      font-family: var(--ff-mono);
+      font-size: 11px; padding: 4px 12px;
+      border-radius: 20px; border: 1px solid var(--border2);
+      color: var(--muted); transition: all 0.2s;
+    }
+    .card-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── RESEARCH ─────────────────────────────────── */
+    #research { background: var(--bg2); }
+    .research-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .r-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .r-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .r-card.teal::before  { background: linear-gradient(90deg, var(--accent), transparent); }
+    .r-card.blue::before  { background: linear-gradient(90deg, var(--accent2), transparent); }
+    .r-card.amber::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+    .r-card:hover { transform: translateY(-4px); border-color: var(--border2); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+
+    .r-tag {
+      font-family: var(--ff-mono);
+      font-size: 10px; letter-spacing: 0.1em;
+      padding: 3px 10px; border-radius: 3px;
+      display: inline-block; margin-bottom: 14px;
+    }
+    .r-tag.teal  { background: rgba(62,207,178,0.12); color: var(--accent); }
+    .r-tag.blue  { background: rgba(91,163,245,0.12); color: var(--accent2); }
+    .r-tag.amber { background: rgba(245,166,35,0.12);  color: var(--accent3); }
+
+    .r-card h3 { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 10px; line-height: 1.4; }
+    .r-card p  { font-size: 13px; color: var(--muted); line-height: 1.75; }
+    .r-card a  { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 12px; font-weight: 500; color: var(--accent); transition: gap 0.2s; }
+    .r-card a:hover { gap: 10px; }
+
+    /* ─── SKILLS ───────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .skill-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .skill-block h3 {
+      font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .skill-block h3 svg { width: 16px; height: 16px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stag {
+      font-family: var(--ff-mono);
+      font-size: 12px; padding: 4px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--border2);
+      color: var(--muted);
+      transition: all 0.2s; cursor: default;
+    }
+    .stag:hover { border-color: var(--accent); color: var(--accent); background: rgba(62,207,178,0.06); }
+
+    /* Progress bars */
+    .skill-bar { margin-top: 14px; }
+    .sb-row { margin-bottom: 12px; }
+    .sb-header { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .sb-track { height: 4px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+    .sb-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: 0; transition: width 1.2s ease;
+    }
+
+    /* ─── PROJECTS ─────────────────────────────────── */
+    #projects { background: var(--bg2); }
+    .projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .proj-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+    .proj-icon {
+      font-size: 22px;
+      width: 40px; height: 40px;
+      background: var(--bg3); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .proj-gh {
+      color: var(--dim); transition: color 0.2s;
+    }
+    .proj-gh:hover { color: var(--accent); }
+    .proj-card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .proj-card p  { font-size: 13px; color: var(--muted); line-height: 1.7; flex: 1; }
+    .proj-footer { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+    .lang-badge {
+      font-family: var(--ff-mono);
+      font-size: 11px; padding: 3px 10px;
+      border-radius: 3px; background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border); color: var(--dim);
+    }
+    .lang-badge.py  { border-color: rgba(62,207,178,0.4);  color: var(--accent); }
+    .lang-badge.f90 { border-color: rgba(91,163,245,0.4);  color: var(--accent2); }
+    .lang-badge.css { border-color: rgba(245,166,35,0.4);  color: var(--accent3); }
+
+    /* ─── CONTACT ──────────────────────────────────── */
+    .contact-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+    .contact-intro { font-size: 16px; color: var(--muted); line-height: 1.85; margin-bottom: 32px; }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; }
+    .c-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px; border-radius: 10px;
+      background: var(--surface); border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .c-item:hover { border-color: var(--border2); }
+    .c-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .c-label { font-size: 11px; color: var(--dim); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .c-value { font-size: 14px; color: var(--text); }
+    .c-value a { transition: color 0.2s; }
+    .c-value a:hover { color: var(--accent); }
+
+    /* contact form */
+    .contact-form { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+    .contact-form h3 { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 500; letter-spacing: 0.05em; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%; background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-family: var(--ff-sans);
+      font-size: 14px; color: var(--text);
+      outline: none; transition: border-color 0.2s;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--dim); }
+    .form-submit {
+      width: 100%;
+      padding: 13px 24px; border-radius: 6px;
+      background: var(--accent); color: #060d1a;
+      font-family: var(--ff-sans);
+      font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .form-submit:hover { background: #5cdfca; transform: translateY(-1px); }
+
+    /* success message */
+    .form-success {
+      display: none;
+      text-align: center; padding: 24px 0;
+      color: var(--accent); font-size: 15px;
+    }
+    .form-success .check { font-size: 40px; display: block; margin-bottom: 12px; }
+
+    /* ─── FOOTER ───────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      text-align: center;
+    }
+    .footer-inner {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .footer-logo {
+      font-family: var(--ff-mono);
+      font-size: 16px; color: var(--accent);
+    }
+    .footer-text { font-size: 12px; color: var(--dim); }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-socials a {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; transition: border-color 0.2s, transform 0.15s;
+    }
+    .footer-socials a:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* ─── TYPING CURSOR ────────────────────────────── */
+    .cursor { display: inline-block; width: 3px; height: 0.85em; background: var(--accent); margin-left: 4px; vertical-align: middle; animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* ─── FADE-IN ON SCROLL ────────────────────────── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 760px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { padding: 24px 24px 32px; }
+      .hero-inner { padding: 0 24px; }
+      .container { padding: 0 24px; }
+      section { padding: 72px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats { gap: 28px; flex-wrap: wrap; }
+      .stat-num { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PARTICLE CANVAS -->
+<canvas id="canvas"></canvas>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <div class="nav-logo">hus@dipc:~$</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mob-menu">
+  <a href="#about"    onclick="closeMob()">About</a>
+  <a href="#research" onclick="closeMob()">Research</a>
+  <a href="#skills"   onclick="closeMob()">Skills</a>
+  <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#contact"  onclick="closeMob()">Contact</a>
+</div>
+
+<!-- ─── MAIN ─── -->
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Computational Scientist</p>
+      <h1 class="hero-name">
+        Hussen Oumer<br>
+        <em id="typed"></em><span class="cursor"></span>
+      </h1>
+      <p class="hero-tagline">
+        PhD Student at DIPC · Soft Matter &amp; Ionic Liquids ·
+        Transitioning to AI-driven R&amp;D. Managing 2.5M CPU hours at BSC.
+      </p>
+      <div class="hero-pills">
+        <span class="pill pill-teal">Computational Physics</span>
+        <span class="pill pill-blue">Ionic Liquids &amp; Soft Matter</span>
+        <span class="pill pill-amber">Forward-Osmosis Desalination</span>
+        <span class="pill pill-teal">Monte Carlo Simulation</span>
+        <span class="pill pill-blue">HPC / BSC</span>
+        <span class="pill pill-amber">AI-driven R&amp;D</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#research" class="btn btn-primary">View Research →</a>
+        <a href="#contact"  class="btn btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">2.5<span>M</span></div>
+          <div class="stat-lbl">CPU hours managed @ BSC</div>
+        </div>
+        <div>
+          <div class="stat-num">6<span>+</span></div>
+          <div class="stat-lbl">Open-source repos</div>
+        </div>
+        <div>
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-lbl">Research areas</div>
+        </div>
+        <div>
+          <div class="stat-num">2<span></span></div>
+          <div class="stat-lbl">Institutions</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="14" height="18" rx="7" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="8" cy="6" r="2" fill="currentColor">
+          <animate attributeName="cy" values="6;12;6" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+      SCROLL
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="sec-label fade-up">01 &mdash; About</p>
+      <h2 class="sec-title fade-up">Who I am</h2>
+      <div class="about-grid">
+        <div>
+          <div class="about-text fade-up">
+            <p>
+              I'm <strong>Hussen Oumer Mohammed</strong>, a PhD student and early-stage researcher
+              at the <strong>Donostia International Physics Center (DIPC)</strong>, based in
+              San Sebastián, Spain. My work sits at the frontier of computational chemistry,
+              soft condensed matter, and machine learning.
+            </p>
+            <p>
+              My doctoral research focuses on the <strong>computational design of draw solutes
+              for Forward-Osmosis seawater desalination</strong> — using molecular simulation
+              and data-driven methods to engineer next-generation water-treatment materials.
+            </p>
+            <p>
+              In parallel I manage <strong>2.5 million CPU hours</strong> at the
+              Barcelona Supercomputing Center (BSC), where I coordinate large-scale
+              simulation campaigns on <strong>ionic liquids (TRILs/ILs)</strong> and
+              their thermodynamic behaviour, including LCST phenomena. I'm now actively
+              transitioning toward <strong>AI-driven R&amp;D</strong> — integrating deep
+              learning with domain physics to accelerate materials discovery.
+            </p>
+          </div>
+          <div class="about-timeline fade-up">
+            <div class="timeline-item">
+              <div class="t-dot"></div>
+              <div class="t-body">
+                <h4>PhD Student — DIPC, San Sebastián</h4>
+                <p>Computational Design · Forward-Osmosis Desalination · 2023 – present</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="t-dot blue"></div>
+              <div class="t-body">
+                <h4>HPC Resource Manager — BSC Barcelona</h4>
+                <p>2.5M CPU-hour allocations · Large-scale IL/soft-matter simulations</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="t-dot amber"></div>
+              <div class="t-body">
+                <h4>Researcher — Ionic Liquids &amp; Soft Matter</h4>
+                <p>LCST-IL phase behaviour · Monte Carlo methods · Fortran &amp; Python</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="about-card">
+            <div class="card-top">
+              <div class="avatar">HO</div>
+              <h3>Hussen Oumer Mohammed</h3>
+              <p>PhD Student · Computational Scientist</p>
+            </div>
+            <div class="card-body">
+              <div class="info-row"><span class="icon">📍</span><span>San Sebastián, Spain</span></div>
+              <div class="info-row"><span class="icon">🏛️</span><span>DIPC</span></div>
+              <div class="info-row"><span class="icon">✉️</span><a href="mailto:hussen.oumer@dipc.org" style="color:var(--accent)">hussen.oumer@dipc.org</a></div>
+              <div class="info-row"><span class="icon">🔬</span><span>Soft Matter &amp; ILs</span></div>
+              <div class="info-row"><span class="icon">💻</span><span>BSC · 2.5M CPU-hrs</span></div>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/hussen-oumer" target="_blank" class="card-link">GitHub</a>
+              <a href="https://linkedin.com/in/hussen-oumer-88149b173" target="_blank" class="card-link">LinkedIn</a>
+              <a href="https://orcid.org/0000-0003-4253-9912" target="_blank" class="card-link">ORCID</a>
+              <a href="https://dipc.ehu.eus/en/dipc/people/early-stage-researchers/hussen-oumer-mohammed" target="_blank" class="card-link">DIPC</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <p class="sec-label fade-up">02 &mdash; Research</p>
+      <h2 class="sec-title fade-up">Research focus</h2>
+      <div class="research-cards">
+
+        <div class="r-card teal fade-up">
+          <span class="r-tag teal">Main PhD project</span>
+          <h3>Computational Design of Draw Solutes for Forward-Osmosis Desalination</h3>
+          <p>Molecular dynamics and Monte Carlo simulation of candidate draw solutes to engineer high-performance, low-energy seawater desalination membranes using forward-osmosis principles.</p>
+          <a href="https://dipc.ehu.eus/en/dipc/people/early-stage-researchers/hussen-oumer-mohammed" target="_blank">Learn more ›</a>
+        </div>
+
+        <div class="r-card blue fade-up">
+          <span class="r-tag blue">Active</span>
+          <h3>LCST Behaviour of Ionic Liquids (IL Simulations)</h3>
+          <p>Large-scale HPC simulations exploring lower critical solution temperature (LCST) phase transitions in ionic liquids, combining thermodynamic modelling with Fortran-based Monte Carlo engines.</p>
+          <a href="https://github.com/hussen-oumer/LCST-IL-Simulations" target="_blank">GitHub repo ›</a>
+        </div>
+
+        <div class="r-card amber fade-up">
+          <span class="r-tag amber">Published</span>
+          <h3>Thermodynamic Properties of Task-specific ILs (TRILs)</h3>
+          <p>Systematic computational study of task-specific room-temperature ionic liquids (TRILs), characterising structural, dynamic, and thermodynamic properties relevant to separation processes.</p>
+          <a href="https://github.com/hussen-oumer/TRILs" target="_blank">GitHub repo ›</a>
+        </div>
+
+        <div class="r-card teal fade-up">
+          <span class="r-tag teal">Tool</span>
+          <h3>2D Monte Carlo Simulation Engine</h3>
+          <p>High-performance 2D Monte Carlo simulation code written in Fortran for studying soft-matter and colloidal systems at the mesoscale. Designed for BSC HPC deployment.</p>
+          <a href="https://github.com/hussen-oumer/2D-Monte-Carlo-Simulation" target="_blank">GitHub repo ›</a>
+        </div>
+
+        <div class="r-card blue fade-up">
+          <span class="r-tag blue">Toolkit</span>
+          <h3>Scientific Python Utilities (scicomp-py)</h3>
+          <p>A collection of Python utilities for scientific computing, post-processing simulation outputs, data analysis, and visualisation for computational physics workflows.</p>
+          <a href="https://github.com/hussen-oumer/scicomp-py-" target="_blank">GitHub repo ›</a>
+        </div>
+
+        <div class="r-card amber fade-up">
+          <span class="r-tag amber">Emerging</span>
+          <h3>AI-Driven Materials Discovery</h3>
+          <p>Transitioning computational expertise toward machine-learning-assisted materials screening — using neural network potentials and data-driven surrogate models to accelerate simulation-based discovery.</p>
+          <a href="#contact">Collaborate ›</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <p class="sec-label fade-up">03 &mdash; Skills</p>
+      <h2 class="sec-title fade-up">Technical expertise</h2>
+      <div class="skills-grid">
+
+        <div class="skill-block fade-up">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Simulation methods
+          </h3>
+          <div class="skill-bar">
+            <div class="sb-row"><div class="sb-header"><span>Molecular Dynamics</span><span>95%</span></div><div class="sb-track"><div class="sb-fill" data-w="95"></div></div></div>
+            <div class="sb-row"><div class="sb-header"><span>Monte Carlo (2D/3D)</span><span>90%</span></div><div class="sb-track"><div class="sb-fill" data-w="90"></div></div></div>
+            <div class="sb-row"><div class="sb-header"><span>Force-field development</span><span>80%</span></div><div class="sb-track"><div class="sb-fill" data-w="80"></div></div></div>
+            <div class="sb-row"><div class="sb-header"><span>Free-energy calculations</span><span>75%</span></div><div class="sb-track"><div class="sb-fill" data-w="75"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skill-block fade-up">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Programming
+          </h3>
+          <div class="skill-tags">
+            <span class="stag">Python</span>
+            <span class="stag">Fortran 90</span>
+            <span class="stag">Bash / Shell</span>
+            <span class="stag">MATLAB</span>
+            <span class="stag">NumPy</span>
+            <span class="stag">SciPy</span>
+            <span class="stag">Matplotlib</span>
+            <span class="stag">Pandas</span>
+            <span class="stag">MDAnalysis</span>
+          </div>
+        </div>
+
+        <div class="skill-block fade-up">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M21 19c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14M21 5v14"/></svg>
+            HPC &amp; Software
+          </h3>
+          <div class="skill-tags">
+            <span class="stag">BSC MareNostrum</span>
+            <span class="stag">SLURM</span>
+            <span class="stag">GROMACS</span>
+            <span class="stag">LAMMPS</span>
+            <span class="stag">NAMD</span>
+            <span class="stag">VESTA</span>
+            <span class="stag">VMD</span>
+            <span class="stag">Linux</span>
+            <span class="stag">Git / GitHub</span>
+          </div>
+        </div>
+
+        <div class="skill-block fade-up">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Research &amp; Communication
+          </h3>
+          <div class="skill-tags">
+            <span class="stag">Scientific Writing</span>
+            <span class="stag">LaTeX</span>
+            <span class="stag">Data Analysis</span>
+            <span class="stag">Thermodynamics</span>
+            <span class="stag">Statistical Mechanics</span>
+            <span class="stag">English · Fluent</span>
+            <span class="stag">Spanish · Intermediate</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <p class="sec-label fade-up">04 &mdash; Projects</p>
+      <h2 class="sec-title fade-up">Open-source work</h2>
+      <div class="projects-list">
+
+        <div class="proj-card fade-up">
+          <div class="proj-header">
+            <div class="proj-icon">🧪</div>
+            <a href="https://github.com/hussen-oumer/scicomp-py-" target="_blank" class="proj-gh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <h3>scicomp-py</h3>
+          <p>Scientific Python utilities for post-processing simulation outputs, statistical analysis, and publication-quality visualisation of MD / MC data.</p>
+          <div class="proj-footer">
+            <span class="lang-badge py">Python</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up">
+          <div class="proj-header">
+            <div class="proj-icon">🎲</div>
+            <a href="https://github.com/hussen-oumer/2D-Monte-Carlo-Simulation" target="_blank" class="proj-gh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <h3>2D Monte Carlo Simulation</h3>
+          <p>High-performance 2D MC engine in Fortran 90 for soft-matter and colloidal systems. Optimised for deployment on BSC HPC clusters via SLURM.</p>
+          <div class="proj-footer">
+            <span class="lang-badge f90">Fortran</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up">
+          <div class="proj-header">
+            <div class="proj-icon">⚗️</div>
+            <a href="https://github.com/hussen-oumer/TRILs" target="_blank" class="proj-gh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <h3>TRILs — Task-specific ILs</h3>
+          <p>Simulation data and analysis scripts for task-specific room-temperature ionic liquids. Includes thermodynamic characterisation and structural analysis pipelines.</p>
+          <div class="proj-footer">
+            <span class="lang-badge py">Python</span>
+            <span class="lang-badge f90">Fortran</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up">
+          <div class="proj-header">
+            <div class="proj-icon">🌡️</div>
+            <a href="https://github.com/hussen-oumer/LCST-IL-Simulations" target="_blank" class="proj-gh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <h3>LCST-IL-Simulations</h3>
+          <p>Simulation workflows and scripts for LCST phase-transition studies in ionic liquids. Full BSC HPC pipeline from submission to analysis.</p>
+          <div class="proj-footer">
+            <span class="lang-badge py">Python</span>
+            <span class="lang-badge f90">Fortran</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up">
+          <div class="proj-header">
+            <div class="proj-icon">🌐</div>
+            <a href="https://github.com/hussen-oumer/hus-ou-mohammed.github.io" target="_blank" class="proj-gh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <h3>Personal Academic Website</h3>
+          <p>This portfolio — built with pure HTML &amp; CSS, deployed via GitHub Pages. Inspired by the interactive academic site style of Kiarash Farajzadehahary.</p>
+          <div class="proj-footer">
+            <span class="lang-badge css">CSS</span>
+            <span class="lang-badge">HTML</span>
+          </div>
+        </div>
+
+        <div class="proj-card fade-up">
+          <div class="proj-header">
+            <div class="proj-icon">🤖</div>
+            <a href="https://github.com/hussen-oumer" target="_blank" class="proj-gh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <h3>AI × Soft Matter (In Progress)</h3>
+          <p>Ongoing work integrating neural network potentials and machine learning surrogate models with classical MD to accelerate computational materials discovery workflows.</p>
+          <div class="proj-footer">
+            <span class="lang-badge py">Python</span>
+            <span class="lang-badge">PyTorch</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="sec-label fade-up">05 &mdash; Contact</p>
+      <h2 class="sec-title fade-up">Get in touch</h2>
+      <div class="contact-wrap">
+        <div class="fade-up">
+          <p class="contact-intro">
+            Whether you're interested in collaborating on computational materials science,
+            AI-driven R&amp;D, or just want to connect — my inbox is always open.
+          </p>
+          <div class="contact-items">
+            <div class="c-item">
+              <div class="c-icon">📍</div>
+              <div>
+                <div class="c-label">Location</div>
+                <div class="c-value">San Sebastián, Basque Country, Spain</div>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">✉️</div>
+              <div>
+                <div class="c-label">Email</div>
+                <div class="c-value"><a href="mailto:hussen.oumer@dipc.org">hussen.oumer@dipc.org</a></div>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">🏛️</div>
+              <div>
+                <div class="c-label">Institution</div>
+                <div class="c-value"><a href="https://dipc.ehu.eus" target="_blank">DIPC — Donostia International Physics Center</a></div>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">🔬</div>
+              <div>
+                <div class="c-label">ORCID</div>
+                <div class="c-value"><a href="https://orcid.org/0000-0003-4253-9912" target="_blank">0000-0003-4253-9912</a></div>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">💼</div>
+              <div>
+                <div class="c-label">LinkedIn</div>
+                <div class="c-value"><a href="https://linkedin.com/in/hussen-oumer-88149b173" target="_blank">in/hussen-oumer-88149b173</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="contact-form">
+            <h3>Send a message</h3>
+            <div id="form-wrap">
+              <div class="form-group">
+                <label>Your name</label>
+                <input type="text" id="f-name" placeholder="Jane Smith" />
+              </div>
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" id="f-email" placeholder="jane@example.com" />
+              </div>
+              <div class="form-group">
+                <label>Subject</label>
+                <input type="text" id="f-subject" placeholder="Collaboration on IL simulations" />
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea id="f-msg" rows="5" placeholder="Hi Hussen, I'd love to discuss..."></textarea>
+              </div>
+              <button class="form-submit" onclick="submitForm()">Send Message</button>
+            </div>
+            <div class="form-success" id="form-success">
+              <span class="check">✓</span>
+              Thanks! Your message was composed.<br>
+              <small style="color:var(--muted);font-size:12px;margin-top:8px;display:block;">
+                (Opens your email client with the message pre-filled.)
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">hus@dipc:~$</div>
+      <div class="footer-socials">
+        <a href="https://github.com/hussen-oumer" target="_blank" title="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/hussen-oumer-88149b173" target="_blank" title="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://orcid.org/0000-0003-4253-9912" target="_blank" title="ORCID">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm-1.892 5.01h1.422v8.98h-1.422V5.01zm3.568 0h3.872c3.695 0 5.564 2.6 5.564 4.49 0 2.02-1.63 4.49-5.438 4.49h-3.998V5.01zm1.422 1.37v5.874h2.45c2.61 0 3.98-1.544 3.98-2.937 0-1.508-1.37-2.937-3.98-2.937h-2.45zM8.684 9.563c.614 0 1.112.498 1.112 1.112 0 .615-.498 1.113-1.112 1.113-.615 0-1.113-.498-1.113-1.113 0-.614.498-1.112 1.113-1.112z"/></svg>
+        </a>
+        <a href="https://dipc.ehu.eus/en/dipc/people/early-stage-researchers/hussen-oumer-mohammed" target="_blank" title="DIPC Profile">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </a>
+      </div>
+      <div class="footer-text">© 2026 Hussen Oumer Mohammed · Built with HTML &amp; CSS · Hosted on GitHub Pages</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─────────────────────────────────────────────── -->
+<script>
+/* ── PARTICLES ────────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, pts;
+  let mouse = { x: -999, y: -999 };
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initPts() {
+    pts = Array.from({ length: 70 }, () => ({
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r:  Math.random() * 1.8 + 0.6
+    }));
+  }
+
+  window.addEventListener('resize', () => { resize(); initPts(); });
+  document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+  resize(); initPts();
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+
+      const dx = mouse.x - p.x, dy = mouse.y - p.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 130) { p.vx += dx/d*0.018; p.vy += dy/d*0.018; }
+
+      const spd = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+      if (spd > 1.1) { p.vx /= spd; p.vy /= spd; }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(62,207,178,0.65)';
+      ctx.fill();
+    });
+
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i+1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 100) {
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = `rgba(62,207,178,${0.12*(1-d/100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── TYPING EFFECT ────────────────────────────── */
+(function() {
+  const phrases = ['Mohammed', 'Computational Scientist', 'PhD Researcher', 'HPC Engineer'];
+  let pi = 0, ci = 0, deleting = false;
+  const el = document.getElementById('typed');
+
+  function tick() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      el.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) { deleting = true; setTimeout(tick, 2200); return; }
+    } else {
+      el.textContent = phrase.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(tick, deleting ? 60 : 100);
+  }
+  tick();
+})();
+
+/* ── HAMBURGER ────────────────────────────────── */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob-menu');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mob.classList.toggle('open');
+});
+function closeMob() {
+  ham.classList.remove('open');
+  mob.classList.remove('open');
+}
+
+/* ── SCROLL FADE-IN ───────────────────────────── */
+const faders = document.querySelectorAll('.fade-up');
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+faders.forEach(el => io.observe(el));
+
+/* ── SKILL BAR ANIMATION ──────────────────────── */
+const barIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.sb-fill').forEach(bar => {
+        bar.style.width = bar.dataset.w + '%';
+      });
+      barIO.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-block').forEach(el => barIO.observe(el));
+
+/* ── ACTIVE NAV LINK ──────────────────────────── */
+const sections = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 140) cur = s.id;
+  });
+  navAs.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--accent)' : '';
+  });
+}, { passive: true });
+
+/* ── CONTACT FORM (mailto) ────────────────────── */
+function submitForm() {
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const subject = document.getElementById('f-subject').value.trim();
+  const msg     = document.getElementById('f-msg').value.trim();
+  if (!name || !email || !msg) { alert('Please fill in name, email, and message.'); return; }
+  const mailto = `mailto:hussen.oumer@dipc.org?subject=${encodeURIComponent(subject||'Message from '+name)}&body=${encodeURIComponent('From: '+name+' <'+email+'>\n\n'+msg)}`;
+  window.location.href = mailto;
+  document.getElementById('form-wrap').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+</body>
+</html>
