@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Hussen Oumer Mohammed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="starCanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+    <div class="cursor-spotlight" id="cursorSpotlight"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" width="62" height="62" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="31" cy="31" r="28" fill="rgba(56,189,248,0.06)" stroke="#38bdf8" stroke-width="1.5"/>
+                    <polygon points="31,15 45,23 45,39 31,47 17,39 17,23" fill="rgba(56,189,248,0.05)" stroke="#38bdf8" stroke-width="0.7" opacity="0.6"/>
+                    <line x1="31" y1="15" x2="31" y2="3"  stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="45" y1="23" x2="55" y2="17" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="45" y1="39" x2="55" y2="45" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="31" y1="47" x2="31" y2="59" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="17" y1="39" x2="7"  y2="45" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="17" y1="23" x2="7"  y2="17" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="31" y1="15" x2="45" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="45" y1="23" x2="17" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="45" y1="23" x2="31" y2="47" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="17" y1="23" x2="45" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <line x1="31" y1="15" x2="17" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <line x1="17" y1="23" x2="31" y2="47" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <circle cx="31" cy="15" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="45" cy="23" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="45" cy="39" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="31" cy="47" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="17" cy="39" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="17" cy="23" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="31" cy="31" r="25" fill="none" stroke="#38bdf8" stroke-width="0.4" opacity="0.25" stroke-dasharray="2 4"/>
+                    <text x="31" y="37" font-family="Amiri, serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">حـ⚛م</text>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="works.html" class="nav-link">Works</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="visuals.html" class="nav-link">Visuals</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="works.html" class="mobile-link">Works</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="visuals.html" class="mobile-link">Visuals</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section: About -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title reveal">About</h1>
+                <p class="page-subtitle reveal">Computational Scientist | PhD Researcher | Student of the world</p>
+            </div>
+        </section>
+
+        <!-- Biography Section -->
+        <section class="section">
+            <div class="container">
+                <div class="about-grid" style="grid-template-columns: 1fr;">
+                    <div class="about-content reveal">
+                        <p class="about-text">Hi, I'm <strong>Hussen Oumer Mohammed</strong>, a PhD researcher in computational physics at the <strong>Donostia International Physics Center (DIPC)</strong> and the <strong>University of the Basque Country UPV/EHU</strong>.</p>
+                        <p class="about-text">Most people know me as a computational scientist. But outside of research, I spend a lot of my time learning. I think there's so much beauty in the world, and I want to understand as much of it as I can while I'm here.</p>
+                        <p class="about-text">I was a physics student before I was a computational physicist. I studied at Uppsala University, where I developed a deep fascination for the intersection of physics, chemistry, and computation. This passion led me to my current work, focusing on molecular dynamics simulations of thermoresponsive ionic liquids.</p>
+                        <p class="about-text">Right now, I'm transitioning toward <strong>AI-driven R&D</strong>, because I believe machine learning can unlock new frontiers in molecular design and accelerate scientific discovery. I'm also passionate about open-source and have published several computational tools on GitHub.</p>
+                        <p class="about-text">This site is a passion project where I collect my original research, code, and ideas. I'm passionately curious about the world and still have a lot to learn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (Minimalist) -->
+        <section class="section contact-section">
+            <div class="container">
+                <div class="reveal">
+                    <h2 class="section-title">Contact</h2>
+                    <p class="section-subtitle">For research inquiries, collaborations, or just to say hello:</p>
+                    <div class="contact-buttons">
+                        <a href="mailto:hussen.oumer@dipc.org" class="btn-primary"><i class="fas fa-envelope"></i> hussen.oumer@dipc.org</a>
+                        <a href="https://www.researchgate.net/profile/Hussen-Oumer" class="btn-outline" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a>
+                        <a href="https://github.com/hussen-oumer" class="btn-outline" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Hussen Oumer Mohammed | Donostia International Physics Center (DIPC) | University of the Basque Country UPV/EHU</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

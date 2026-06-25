@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works | Hussen Oumer Mohammed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="starCanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+    <div class="cursor-spotlight" id="cursorSpotlight"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" width="62" height="62" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="31" cy="31" r="28" fill="rgba(56,189,248,0.06)" stroke="#38bdf8" stroke-width="1.5"/>
+                    <polygon points="31,15 45,23 45,39 31,47 17,39 17,23" fill="rgba(56,189,248,0.05)" stroke="#38bdf8" stroke-width="0.7" opacity="0.6"/>
+                    <line x1="31" y1="15" x2="31" y2="3"  stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="45" y1="23" x2="55" y2="17" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="45" y1="39" x2="55" y2="45" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="31" y1="47" x2="31" y2="59" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="17" y1="39" x2="7"  y2="45" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="17" y1="23" x2="7"  y2="17" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="31" y1="15" x2="45" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="45" y1="23" x2="17" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="45" y1="23" x2="31" y2="47" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="17" y1="23" x2="45" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <line x1="31" y1="15" x2="17" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <line x1="17" y1="23" x2="31" y2="47" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <circle cx="31" cy="15" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="45" cy="23" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="45" cy="39" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="31" cy="47" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="17" cy="39" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="17" cy="23" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="31" cy="31" r="25" fill="none" stroke="#38bdf8" stroke-width="0.4" opacity="0.25" stroke-dasharray="2 4"/>
+                    <text x="31" y="37" font-family="Amiri, serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">حـ⚛م</text>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="works.html" class="nav-link">Works</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="visuals.html" class="nav-link">Visuals</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="works.html" class="mobile-link">Works</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="visuals.html" class="mobile-link">Visuals</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title reveal">Research & Publications</h1>
+                <p class="page-subtitle reveal">Original papers, computational projects, and scientific contributions</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="reveal">
+                    <h2 class="section-title">📄 Published Papers</h2>
+                    <p class="section-subtitle">Peer-reviewed research in computational physics and chemistry</p>
+                </div>
+                <div class="publication-list">
+                    <div class="publication-item reveal">
+                        <div class="pub-title">Modeling and Elucidating the Behavior of a Thermoresponsive LCST Ionic Liquid</div>
+                        <div class="pub-authors">Hussen Oumer Mohammed, Abel De Cozar, Ronen Zangi</div>
+                        <div class="pub-venue">J. Chem. Inf. Model. 2025, 65, 2, 785–797</div>
+                        <a href="https://pubs.acs.org/doi/10.1021/acs.jcim.4c02036" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Paper</a>
+                    </div>
+                    <div class="publication-item reveal">
+                        <div class="pub-title">MD Simulations of UCST Liquid-Liquid Phase Separations of [Hbet][Tf₂N]/Water Mixtures</div>
+                        <div class="pub-authors">Hussen Oumer Mohammed, Abel De Cozar, Ronen Zangi</div>
+                        <div class="pub-venue">Journal of Molecular Liquids, 2026</div>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S016773222600084X?via%3Dihub" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Paper</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="reveal">
+                    <h2 class="section-title">💻 Research Projects</h2>
+                    <p class="section-subtitle">Current and ongoing computational investigations</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <div class="project-content">
+                            <div class="project-icon"><i class="fas fa-tint"></i></div>
+                            <h3 class="project-title">Thermoresponsive Ionic Liquids</h3>
+                            <p class="project-description">Investigating LCST and UCST phase behavior through atomistic molecular dynamics simulations to understand nanostructuring and water absorption kinetics.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Molecular Dynamics</span>
+                                <span class="tech-tag">GROMACS</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card reveal">
+                        <div class="project-content">
+                            <div class="project-badge">Current · Horizon Europe</div>
+                            <div class="project-icon"><i class="fas fa-filter"></i></div>
+                            <h3 class="project-title">Zwitterionic Polymers for Desalination</h3>
+                            <p class="project-description">Part of the EU Horizon Europe DesalSea initiative — using molecular simulations to design and screen zwitterionic polymer systems for efficient, selective water desalination.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Zwitterionic Polymers</span>
+                                <span class="tech-tag">GROMACS</span>
+                                <span class="tech-tag">Horizon Europe</span>
+                                <span class="tech-tag">Desalination</span>
+                            </div>
+                            <a href="https://desalsea.eu/" class="pub-link" target="_blank"><i class="fas fa-external-link-alt"></i> DesalSea Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="reveal">
+                    <h2 class="section-title">🐙 Open Source</h2>
+                    <p class="section-subtitle">Computational tools and simulation pipelines</p>
+                </div>
+                <div class="github-grid">
+                    <div class="github-card reveal">
+                        <div class="github-icon"><i class="fab fa-github"></i></div>
+                        <h3 class="github-title">scicomp-py-</h3>
+                        <p class="github-description">Python tools for scientific computing, simulation pipelines, and data analysis.</p>
+                        <a href="https://github.com/hussen-oumer/scicomp-py-" class="github-link" target="_blank">View Repository →</a>
+                    </div>
+                    <div class="github-card reveal">
+                        <div class="github-icon"><i class="fab fa-github"></i></div>
+                        <h3 class="github-title">2D-Monte-Carlo-Simulation</h3>
+                        <p class="github-description">Fortran implementation of 2D Monte Carlo simulations for statistical mechanics problems.</p>
+                        <a href="https://github.com/hussen-oumer/2D-Monte-Carlo-Simulation" class="github-link" target="_blank">View Repository →</a>
+                    </div>
+                    <div class="github-card reveal">
+                        <div class="github-icon"><i class="fab fa-github"></i></div>
+                        <h3 class="github-title">hus-ou-mohammed.github.io</h3>
+                        <p class="github-description">Personal website template (HTML/CSS) — the foundation of this portfolio.</p>
+                        <a href="https://github.com/hussen-oumer/hus-ou-mohammed.github.io" class="github-link" target="_blank">View Repository →</a>
+                    </div>
+                </div>
+                <div class="github-more">
+                    <a href="https://github.com/hussen-oumer" class="btn-outline" target="_blank"><i class="fab fa-github"></i> View all on GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Hussen Oumer Mohammed | Donostia International Physics Center (DIPC) | University of the Basque Country UPV/EHU</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

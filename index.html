@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hussen Oumer Mohammed | Computational Scientist</title>
@@ -1215,5 +1216,114 @@ function submitForm() {
   document.getElementById('form-success').style.display = 'block';
 }
 </script>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussen Oumer Mohammed | Computational Modeling & Simulation</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="starCanvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+    <div class="cursor-spotlight" id="cursorSpotlight"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" width="62" height="62" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="31" cy="31" r="28" fill="rgba(56,189,248,0.06)" stroke="#38bdf8" stroke-width="1.5"/>
+                    <polygon points="31,15 45,23 45,39 31,47 17,39 17,23" fill="rgba(56,189,248,0.05)" stroke="#38bdf8" stroke-width="0.7" opacity="0.6"/>
+                    <line x1="31" y1="15" x2="31" y2="3"  stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="45" y1="23" x2="55" y2="17" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="45" y1="39" x2="55" y2="45" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="31" y1="47" x2="31" y2="59" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="17" y1="39" x2="7"  y2="45" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="17" y1="23" x2="7"  y2="17" stroke="#38bdf8" stroke-width="0.6" opacity="0.45"/>
+                    <line x1="31" y1="15" x2="45" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="45" y1="23" x2="17" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="45" y1="23" x2="31" y2="47" stroke="#38bdf8" stroke-width="0.4" opacity="0.28"/>
+                    <line x1="17" y1="23" x2="45" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <line x1="31" y1="15" x2="17" y2="39" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <line x1="17" y1="23" x2="31" y2="47" stroke="#38bdf8" stroke-width="0.4" opacity="0.18"/>
+                    <circle cx="31" cy="15" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="45" cy="23" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="45" cy="39" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="31" cy="47" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="17" cy="39" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="17" cy="23" r="1.6" fill="#38bdf8" opacity="0.75"/>
+                    <circle cx="31" cy="31" r="25" fill="none" stroke="#38bdf8" stroke-width="0.4" opacity="0.25" stroke-dasharray="2 4"/>
+                    <text x="31" y="37" font-family="Amiri, serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">حـ⚛م</text>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="works.html" class="nav-link">Works</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="visuals.html" class="nav-link">Visuals</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="works.html" class="mobile-link">Works</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="visuals.html" class="mobile-link">Visuals</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title reveal">Welcome to my Work</h1>
+                <div class="hero-intro reveal">
+                    Hi, I'm Hussen — a <strong>Computational Scientist</strong> and PhD student specializing in <strong>Soft Matter & Ionic Liquids</strong>. I'm fascinated by the intersection of physics, chemistry, and computation. Right now, I'm transitioning toward <strong>AI-driven R&D</strong>, because I believe machine learning can unlock new frontiers in molecular design. I'm based at DIPC, and this is where I share my research, code, and ideas.
+                </div>
+                <div class="hero-links reveal">
+                    <a href="works.html" class="btn-primary">Explore Research</a>
+                    <a href="about.html" class="btn-outline">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="research" class="section">
+            <div class="container">
+                <div class="reveal">
+                    <h2 class="section-title">Research Focus</h2>
+                    <p class="section-subtitle">Advancing the frontiers of computational modeling and molecular simulations</p>
+                </div>
+                <div class="focus-grid">
+                    <div class="focus-card reveal">
+                        <div class="focus-icon"><i class="fas fa-atom"></i></div>
+                        <h3 class="focus-title">Molecular Dynamics</h3>
+                        <p class="focus-text">Simulating complex molecular systems to understand phase behavior and nanostructuring in thermoresponsive ionic liquids.</p>
+                    </div>
+                    <div class="focus-card reveal">
+                        <div class="focus-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="focus-title">Computational Modeling</h3>
+                        <p class="focus-text">Developing advanced computational models to predict and analyze physical phenomena at the molecular level.</p>
+                    </div>
+                    <div class="focus-card reveal">
+                        <div class="focus-icon"><i class="fas fa-microchip"></i></div>
+                        <h3 class="focus-title">High-Performance Computing</h3>
+                        <p class="focus-text">Leveraging HPC resources at DIPC for large-scale simulations and data-intensive research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Hussen Oumer Mohammed | Donostia International Physics Center (DIPC) | University of the Basque Country UPV/EHU</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem;">Computational Modeling & Molecular Simulation</p>
+    </footer>
+    
+    <script src="js/script.js"></script>
+>>>>>>> 11f14be (Update)
 </body>
 </html>
